@@ -1,0 +1,18 @@
+server:
+  port: ${AUTH_SERVICE_PORT:8083}
+
+spring:
+  application:
+    name: auth-service
+  data:
+    mongodb:
+      uri: ${SPRING_DATA_MONGODB_URI:mongodb://localhost:27017/auth_service}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:${EUREKA_PORT:8761}/eureka/
+
+jwt:
+  secret: ${JWT_SECRET:your_jwt_secret_key_here_make_it_long_and_secure_in_production}
+  expiration: ${JWT_EXPIRATION:86400000}
